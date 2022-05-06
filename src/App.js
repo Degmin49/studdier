@@ -1,15 +1,18 @@
 import './App.css';
-import Courses from './components/Courses';
 import 'bootstrap/dist/css/bootstrap.css';
+import AllCourses from './components/AllCourses';
 
 const baseUrl = window.location.protocol + "//" + window.location.host + "/";
 
 function App() {
-  localStorage.setItem('role','admin');
+  //localStorage.setItem('role','admin');
+  //localStorage.setItem('role','teacher');
+  //localStorage.setItem('role','student');
+  localStorage.setItem('role','visitor');
   
   return (
     <div className='App'>
-      <Courses />
+      <AllCourses />
     </div>
   );
 }
