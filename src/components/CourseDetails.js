@@ -89,7 +89,11 @@ class CourseDetails extends React.Component {
                 {/* TUTAJ ZRÓB VIDEO */}
                 <Card className="MyVideo" style={{ width: '100%;' }}></Card>
                 
-                <p>{CourseInfo.fullDescription}</p>
+                <br />
+                <h4>Opis:</h4>
+                <div>{CourseInfo.fullDescription}</div>
+
+                {/* BUTTON DO ZAPISANIA SIĘ */}
             </Container>
         );
     }
