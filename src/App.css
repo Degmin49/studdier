@@ -15,6 +15,11 @@
   color: seagreen;
 }
 
+.MyTitleRed{
+  font-size: 40px;
+  color: crimson;
+}
+
 .MyFormControl{
   margin-top: 10px;
   margin-bottom: 10px;
