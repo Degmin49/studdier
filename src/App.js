@@ -2,6 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import AllCourses from './components/AllCourses';
 import MyCourses from './components/MyCourses';
+import CourseDetails from './components/CourseDetails';
 
 const baseUrl = window.location.protocol + "//" + window.location.host + "/";
 
@@ -14,7 +15,8 @@ function App() {
   return (
     <div className='App'>
       {/* <AllCourses /> */}
-      <MyCourses />
+      {/* <MyCourses /> */}
+      <CourseDetails />
     </div>
   );
 }
