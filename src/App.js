@@ -10,16 +10,16 @@ const baseUrl = window.location.protocol + "//" + window.location.host + "/";
 
 function App() {
   //localStorage.setItem('role','admin');
-  localStorage.setItem('role','teacher');
+  //localStorage.setItem('role','teacher');
   //localStorage.setItem('role','student');
-  //localStorage.setItem('role','visitor');
+  localStorage.setItem('role','visitor');
   
   return (
     <div className='App'>
-      {/* <AllCourses /> */}
-      {/* <MyCourses /> */}
-      {/* <CourseDetails /> */}
-      {/* <Calendar /> */}
+      <AllCourses />
+      <MyCourses />
+      <CourseDetails />
+      <Calendar />
       <Payment />
     </div>
   );

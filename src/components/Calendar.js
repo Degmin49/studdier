@@ -5,7 +5,7 @@ var CourseInfo = {
     id: 1,
     title: "Praktyczny kurs ASP.NET Core REST Web API od podstaw (C#)",
     author: "Jakub Kozera",
-    calendar: ["2022-05-13","2022-06-06","2022-07-17"]
+    calendar: ["2022-05-13, Poznań - Sala Wykładowa nr.24, 8:00-16:00","2022-06-06, Poznań - Sala Wykładowa nr.8, 8:00-16:00","2022-07-17, Poznań - Sala Wykładowa nr.3, 8:00-16:00"]
 };
 
 class Calendar extends React.Component {

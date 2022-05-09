@@ -17,6 +17,11 @@ class Payment extends React.Component {
             role: localStorage.getItem('role')
         };
     }
+
+    payment(){
+        //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        alert("Płatność przetwarzana");
+    }
     
     render(){
         return(
@@ -24,6 +29,8 @@ class Payment extends React.Component {
                 <h1>Twój produkt:</h1>
                 
                 <h4>{CourseInfo.title}<br /></h4><Badge bg="secondary">Autor: {CourseInfo.author}</Badge>
+                <br /><h4><b>Koszt: {CourseInfo.price}</b></h4>
+                <br /><Button className="MyTableButton" variant="dark" onClick={() => {this.payment()}}>Zapłać</Button>
             </Container>
         );
     }
