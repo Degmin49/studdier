@@ -25,8 +25,8 @@ function App() {
 
   //localStorage.setItem('role','admin');
   //localStorage.setItem('role','teacher');
-  //localStorage.setItem('role','student');
-  localStorage.setItem('role','visitor');
+  localStorage.setItem('role','student');
+  //localStorage.setItem('role','visitor');
 
   //const sqlite3 = require("sqlite3").verbose();
   // const db = new sqlite3.Database("./baza.db",sqlite3.OPEN_READWRITE, (err) => {

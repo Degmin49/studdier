@@ -35,6 +35,10 @@ class MyCourses extends React.Component {
         this.setState({ showModalEdit: false });
     }
 
+    sendCourse(){
+        window.location.href = "CourseDetails";
+    }
+
     render(){
         const coursesList = this.state.courses.map((x,index) => {
             return (

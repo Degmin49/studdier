@@ -16,6 +16,10 @@ class Calendar extends React.Component {
             role: localStorage.getItem('role')
         };
     }
+
+    goToPayment(){
+        window.location.href = "Payment";
+    }
     
     render(){
         const calendarList = CourseInfo.calendar.map((x,index) => {
@@ -23,7 +27,7 @@ class Calendar extends React.Component {
                 <tr key={index}>
                     <td>{x}</td>
                     <td>
-                        <Button className="MyTableButton" variant="success">Zapisz się!</Button>
+                        <Button className="MyTableButton" variant="success" onClick={() => this.goToPayment()}>Zapisz się!</Button>
                     </td>
                 </tr>
         )});

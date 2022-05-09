@@ -36,10 +36,10 @@ class AllCourses extends React.Component {
     sendCourse(){
         if (this.state.role == "student"){
             //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-            //jeśli już posiada ten kurs
-            this.setState({showModalDenied: true});
-            //jeśli nie wykupił:
-            //redirect do kalendarza
+            //jeśli posiada ten kurs
+            if (false) this.setState({showModalDenied: true});
+
+            window.location.href = "Calendar";
         }
         if (this.state.role == "visitor") this.setState({showModalLogin: true});
     }

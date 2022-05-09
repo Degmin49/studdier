@@ -20,7 +20,7 @@ class Payment extends React.Component {
 
     payment(){
         //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-        alert("Płatność przetwarzana");
+        window.location.href = "MyCourses";
     }
     
     render(){
