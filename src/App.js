@@ -13,6 +13,8 @@ import MyCourses from './components/MyCourses';
 import CourseDetails from './components/CourseDetails';
 import Calendar from './components/Calendar';
 import Payment from './components/Payment';
+import Login from './components/Login';
+import Register from './components/Register';
 
 const baseUrl = window.location.protocol + "//" + window.location.host + "/";
 
@@ -45,7 +47,9 @@ function App() {
               {/* Student && Teacher */}
               <Nav.Link as={Link} to={"/MyCourses"}>Moje kursy</Nav.Link>
               <Nav.Link as={Link} to={"/Payment"}>Płatności</Nav.Link>
-
+              {/* Visitor */}
+              <Nav.Link as={Link} to={"/Login"}>Zaloguj</Nav.Link>
+              <Nav.Link as={Link} to={"/Register"}>Zarejestruj</Nav.Link>
 
 
               {/* All */}
@@ -66,6 +70,8 @@ function App() {
           <Route path="/CourseDetails" element={<CourseDetails/>} />
           <Route path="/Calendar" element={<Calendar/>} />
           <Route path="/Payment" element={<Payment/>} />
+          <Route path="/Login" element={<Login/>} />
+          <Route path="/Register" element={<Register/>} />
         </Routes>
       </Router>
     </div>
