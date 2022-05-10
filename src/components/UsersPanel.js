@@ -2,13 +2,12 @@ import React from "react";
 import { Container, Button, Form, Modal, Table } from "react-bootstrap";
 
 var Users = [
-    {userid: 0,type: true,name: "Adam",surname: "Małysz",email: "adam.małysz@wp.pl",role:"admin"},
-    {userid: 1,type: false,name: "Robert",surname: "Lewandowski",email: "złota@piłka.fr",role:"teacher"},
-    {userid: 2,type: false,name: "Michał",surname: "Pazdan",email: "ronaldo@nieprzejdzie.pl",role:"student"},
-    {userid: 3,type: false,name: "Sergio",surname: "Ramos",email: "ball@incosmos.com",role:"student"},
-    {userid: 4,type: false,name: "Arek",surname: "Milik",email: "siła@nie-technika.pl",role:"student"}
+    {userid: 0,name: "Adam",surname: "Małysz",email: "adam.małysz@wp.pl",role:"admin"},
+    {userid: 1,name: "Robert",surname: "Lewandowski",email: "złota@piłka.fr",role:"teacher"},
+    {userid: 2,name: "Michał",surname: "Pazdan",email: "ronaldo@nieprzejdzie.pl",role:"student"},
+    {userid: 3,name: "Sergio",surname: "Ramos",email: "ball@incosmos.com",role:"student"},
+    {userid: 4,name: "Arek",surname: "Milik",email: "siła@nie-technika.pl",role:"student"}
 ];
-// Users = [];
 
 class UsersPanel extends React.Component {
     constructor(props){
@@ -34,13 +33,11 @@ class UsersPanel extends React.Component {
     }
 
     editUser() {
-        var newUserName = document.getElementById("newUserName").value;
-        var newUserSurname = document.getElementById("newUserSurname").value;
-        var newUserEmail = document.getElementById("newUserEmail").value;
-        let newUser = {userid: this.state.users[this.state.currentIndex].userid, type: this.state.users[this.state.currentIndex].type, name: newUserName, surname: newUserSurname, email: newUserEmail};
-
-        console.log('Edytujemy obiekt z "userid": '+this.state.users[this.state.currentIndex].userid); //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-        console.log("Tymi danymi: "+newUserName+" "+newUserSurname); //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        const newUserName = document.getElementById("newUserName").value;
+        const newUserSurname = document.getElementById("newUserSurname").value;
+        const newUserEmail = document.getElementById("newUserEmail").value;
+        const newUserRole = document.getElementById("newUserRole").value;
+        let newUser = {userid: this.state.users[this.state.currentIndex].userid, type: this.state.users[this.state.currentIndex].type, name: newUserName, surname: newUserSurname, email: newUserEmail, role: newUserRole};
 
         var currentId = this.state.users[this.state.currentIndex].userid;
         this.setState(prevState => ({
@@ -60,8 +57,8 @@ class UsersPanel extends React.Component {
                 <td>{x.email}</td>
                 <td>{x.role}</td>
                 <td>
-                    {x.type ? '' : <Button className="MyTableButton" variant="secondary" onClick={() => {this.setState({showModalEdit: true, currentIndex: index})}}>Edytuj</Button>}
-                    {x.type ? '' : <Button className="MyTableButton" variant="danger" onClick={() => {this.setState({showModalDelete: true, currentIndex: index})}}>Usuń</Button>}
+                    {x.role == "admin" ? '' : <Button className="MyTableButton" variant="secondary" onClick={() => {this.setState({showModalEdit: true, currentIndex: index})}}>Edytuj</Button>}
+                    {x.role == "admin" ? '' : <Button className="MyTableButton" variant="danger" onClick={() => {this.setState({showModalDelete: true, currentIndex: index})}}>Usuń</Button>}
                 </td>
             </tr>
         )});
@@ -111,6 +108,12 @@ class UsersPanel extends React.Component {
                         <Form.Control id="newUserSurname" placeholder="Wpisz nazwisko" className="MyFormControl" type="text" defaultValue={this.state.users[this.state.currentIndex].surname} />
                         <label><h5>Edytuj adres e-mail:</h5></label>
                         <Form.Control id="newUserEmail" placeholder="Wpisz adres e-mail" className="MyFormControl" type="email" defaultValue={this.state.users[this.state.currentIndex].email} />
+                        <label><h5>Edytuj role:</h5></label>
+                        <Form.Select id="newUserRole" placeholder="Wpisz role" className="MyFormControl" type="text">
+                            <option value="admin" selected={this.state.users[this.state.currentIndex].role == "admin" ? "selected" : ""}>Administrator</option>
+                            <option value="teacher" selected={this.state.users[this.state.currentIndex].role == "teacher" ? "selected" : ""}>Nauczyciel</option>
+                            <option value="student" selected={this.state.users[this.state.currentIndex].role == "student" ? "selected" : ""}>Student</option>
+                        </Form.Select>
                         </Form>
                     </Modal.Body>
 
