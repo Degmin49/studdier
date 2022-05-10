@@ -52,7 +52,7 @@ class UsersPanel extends React.Component {
         return (
             <tr key={x.userid}>
                 <td>{index+1}</td>
-                <td>{x.name} {x.type ? <span title="Konto administratora">✔</span> : ''}</td>
+                <td>{x.name} {x.role === "admin" ? <span title="Konto administratora">✔</span> : ''}</td>
                 <td>{x.surname}</td>
                 <td>{x.email}</td>
                 <td>{x.role}</td>
