@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Nav, Navbar, NavDropdown, Button } from 'react-bootstrap';
 import {
   BrowserRouter as Router,
   Route,
@@ -15,6 +15,7 @@ import Calendar from './components/Calendar';
 import Payment from './components/Payment';
 import Login from './components/Login';
 import Register from './components/Register';
+import UsersPanel from './components/UsersPanel';
 
 const baseUrl = window.location.protocol + "//" + window.location.host + "/";
 
@@ -23,9 +24,9 @@ function App() {
   //   window.location.replace("/AllCourses"); //ZRÓB STRONE POWITALNĄ
   // }
 
-  //localStorage.setItem('role','admin');
+  localStorage.setItem('role','admin');
   //localStorage.setItem('role','teacher');
-  localStorage.setItem('role','student');
+  //localStorage.setItem('role','student');
   //localStorage.setItem('role','visitor');
 
   //const sqlite3 = require("sqlite3").verbose();
@@ -39,6 +40,10 @@ function App() {
   // db.close((err) => {
   //   if (err) return console.error(err.message);
   // });
+
+  function test(){
+    window.open('mailto:degmin49@gmail.com?subject=Test&body=Czy da się wysłać email z js?');
+  }
   
   return (
     <div className='App'>
@@ -62,7 +67,10 @@ function App() {
               {/* Visitor */}
               <Nav.Link as={Link} to={"/Login"}>Zaloguj</Nav.Link>
               <Nav.Link as={Link} to={"/Register"}>Zarejestruj</Nav.Link>
+              {/* Admin */}
+              <Nav.Link as={Link} to={"/UsersPanel"}>Zarządzaj kontami</Nav.Link>
 
+              <Button className="MyTableButton" variant="danger" onClick={() => {test()}}>Test</Button>
 
               {/* All */}
               {/* <NavDropdown title='KONTO'>
@@ -84,6 +92,7 @@ function App() {
           <Route path="/Payment" element={<Payment/>} />
           <Route path="/Login" element={<Login/>} />
           <Route path="/Register" element={<Register/>} />
+          <Route path="/UsersPanel" element={<UsersPanel/>} />
         </Routes>
       </Router>
     </div>

@@ -2,11 +2,11 @@ import React from "react";
 import { Container, Button, Form, Modal, Table } from "react-bootstrap";
 
 var Users = [
-    {userid: 0,type: true,name: "Adam",surname: "Małysz",email: "adam.małysz@wp.pl"},
-    {userid: 1,type: false,name: "Robert",surname: "Lewandowski",email: "złota@piłka.fr"},
-    {userid: 2,type: false,name: "Michał",surname: "Pazdan",email: "ronaldo@nieprzejdzie.pl"},
-    {userid: 3,type: false,name: "Sergio",surname: "Ramos",email: "ball@incosmos.com"},
-    {userid: 4,type: false,name: "Arek",surname: "Milik",email: "siła@nie-technika.pl"}
+    {userid: 0,type: true,name: "Adam",surname: "Małysz",email: "adam.małysz@wp.pl",role:"admin"},
+    {userid: 1,type: false,name: "Robert",surname: "Lewandowski",email: "złota@piłka.fr",role:"teacher"},
+    {userid: 2,type: false,name: "Michał",surname: "Pazdan",email: "ronaldo@nieprzejdzie.pl",role:"student"},
+    {userid: 3,type: false,name: "Sergio",surname: "Ramos",email: "ball@incosmos.com",role:"student"},
+    {userid: 4,type: false,name: "Arek",surname: "Milik",email: "siła@nie-technika.pl",role:"student"}
 ];
 // Users = [];
 
@@ -28,7 +28,7 @@ class UsersPanel extends React.Component {
     }
 
     deleteUser() {
-        console.log("Usuwamy obiekt: "+this.state.users[this.state.currentIndex].name+" "+this.state.users[this.state.currentIndex].surname); //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        //POST do API - usunięcie użytkownika
         this.deleteItem();
         this.setState({ showModalDelete: false, currentIndex: 0 });
     }
@@ -58,6 +58,7 @@ class UsersPanel extends React.Component {
                 <td>{x.name} {x.type ? <span title="Konto administratora">✔</span> : ''}</td>
                 <td>{x.surname}</td>
                 <td>{x.email}</td>
+                <td>{x.role}</td>
                 <td>
                     {x.type ? '' : <Button className="MyTableButton" variant="secondary" onClick={() => {this.setState({showModalEdit: true, currentIndex: index})}}>Edytuj</Button>}
                     {x.type ? '' : <Button className="MyTableButton" variant="danger" onClick={() => {this.setState({showModalDelete: true, currentIndex: index})}}>Usuń</Button>}
@@ -76,6 +77,7 @@ class UsersPanel extends React.Component {
                         <th>Imię</th>
                         <th>Nazwisko</th>
                         <th>E-mail</th>
+                        <th>Rola</th>
                     </tr>
                 </thead>
                 <tbody>
